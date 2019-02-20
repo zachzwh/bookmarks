@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的导航</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="wrapper" id="mainkbd">
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        var keys = {
+            0: ['q','w','e','r','t','y','u','i','o','p'],  //数组就是哈希，方括号就是简写，{0:'q',1:'w'……}
+            1: ['a','s','d','f','g','h','j','k','l'],
+            2: ['z','x','c','v','b','n','m'],
+            length: 3
+        }
+        var hash = {
+            'q': 'qq.com',    //可以不按顺序
+            'w': 'weibo.com',
+            'e': 'ele.me',
+            'r': 'renren.com',
+            't': 'taobao.com',
+            'z': 'zhihu.com',
+            'b': 'bilibili.com/'
+        }
+
+        //取出localstorage中的zz对应的hash
+        var hashInLocalStorage = JSON.parse(localStorage.getItem('websiteT') || 'null')
+        if(hashInLocalStorage){
+            hash = hashInLocalStorage
+        }
+
+        //遍历keys，生成kbd标签
+        for (i=0; i< keys['length']; i++){      //0 1 2
+            divRow = document.createElement('div')   //创建一个标签
+            mainkbd.appendChild(divRow)              //让它做儿子
+            row = keys[i]
+            // console.log(row)
+            for (j=0; j<row.length; j++){
+                kbd = document.createElement('kbd')
+                kbd.textContent = row[j]            //内容
+                button = document.createElement('button')   //添加编辑按钮
+                button.textContent = '编辑'
+                button.id = row[j]
+                button.onclick = function(keyInfo){
+                    //console.log(button)   //button是个容器，打出来是最后一个button
+                    key = keyInfo.target['id']
+                    website = prompt('给我一个网址')
+                    hash[key] = website //hash变更
+                    localStorage.setItem('websiteT', JSON.stringify(hash))
+                    console.log(hash)
+                }
+                kbd.appendChild(button)
+                divRow.appendChild(kbd)             //创建一个标签，让它做儿子
+            }
+        }
+
+        document.onkeypress = function(keyInfo){
+            key = keyInfo['key']
+            website = hash[key]
+            console.log(website)
+            //location.href = 'https://' + website
+            window.open('https://' + website, '_blank')
+        }
+
+    </script>
+</body>
+</html>

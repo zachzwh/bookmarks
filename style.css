@@ -1,0 +1,40 @@
+*{margin: 0; padding: 0;}
+
+a{text-decoration: none;}
+
+kbd {
+    border: 1px solid grey;
+    width: 7em;
+    height: 7em;
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+}
+
+kbd > button {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    display: none;
+}
+
+kbd:hover > button {
+    display: inline-block;
+}
+
+main {
+    text-align: center;
+}
+
+#mainkbd{
+    display: inline-block;
+}
+
+/* #mainkbd > div:nth-child(2){
+    margin-left: 1em;
+}
+
+#mainkbd > div:nth-child(3){
+    margin-left: 2em;
+} */
