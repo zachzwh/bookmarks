@@ -2,34 +2,70 @@
 
 a{text-decoration: none;}
 
-kbd {
-    border: 1px solid grey;
-    width: 7em;
-    height: 7em;
-    display: inline-block;
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
+:root {
+    --l-blue: #33c2ff;
 }
 
-kbd > button {
-    position: absolute;
-    right: 1px;
-    bottom: 1px;
-    display: none;
+html {
+    height: 100%;
 }
 
-kbd:hover > button {
-    display: inline-block;
+body {
+    background: linear-gradient(#091029, #111a4b) ;
 }
 
 main {
+    padding-top: 100px;
     text-align: center;
 }
 
 #mainkbd{
     display: inline-block;
 }
+
+kbd {
+    border: 2px solid var(--l-blue);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--l-blue);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5em;
+    position: relative;
+}
+
+kbd > button {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 4px;
+    background-color: #111a4b;
+    border: 1px solid #00ffe6;
+    border-radius: 5px;
+    display: none;
+    font-size: 0.5em;
+    color: #00ffe6;
+}
+
+kbd:hover {
+    color: #00ffe6;
+    border: 2px solid #00ffe6;
+    box-shadow: 0 0 10px #bafff8;
+}
+
+kbd:hover > button {
+    display: inline-block;
+}
+
+kbd > button:hover{
+    box-shadow: 0 0 5px #bafff8;;
+}
+
 
 /* #mainkbd > div:nth-child(2){
     margin-left: 1em;
