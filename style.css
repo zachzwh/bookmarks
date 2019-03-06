@@ -37,6 +37,13 @@ kbd {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5em;
     position: relative;
+    transition: box-shadow 0.3s;
+}
+
+kbd:hover {
+    color: #00ffe6;
+    border: 2px solid #00ffe6;
+    box-shadow: 0 0 7px #bafff8;
 }
 
 kbd > button {
@@ -44,7 +51,7 @@ kbd > button {
     right: 5px;
     bottom: 5px;
     padding: 4px;
-    background-color: #111a4b;
+    background-color: transparent;
     border: 1px solid #00ffe6;
     border-radius: 5px;
     display: none;
@@ -52,19 +59,18 @@ kbd > button {
     color: #00ffe6;
 }
 
-kbd:hover {
-    color: #00ffe6;
-    border: 2px solid #00ffe6;
-    box-shadow: 0 0 10px #bafff8;
+kbd > button:hover{
+    box-shadow: 0 0 5px #bafff8;;
+}
+
+kbd > button:active{
+    background-color: #ffffff22;
 }
 
 kbd:hover > button {
     display: inline-block;
 }
 
-kbd > button:hover{
-    box-shadow: 0 0 5px #bafff8;;
-}
 
 
 /* #mainkbd > div:nth-child(2){
